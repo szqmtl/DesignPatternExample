@@ -24,7 +24,7 @@ class Room(MapSite):
     def __str__(self):
         s = 'simple room({}) -'.format(self.__roomNumber)
         for x in self.__sides:
-            s = '{} {}: {}'.format(s, x, self.__sides[x])
+            s = '{} {}: {}'.format(s, Direction(x).name, self.__sides[x])
 
         return s
 
@@ -37,7 +37,7 @@ class RoomWithBomb(Room):
         s = 'boom room({}) -'.format(self.get_number())
         sides = self.get_sides()
         for x in sides:
-            s = '{} {}: {}'.format(s, x, sides[x])
+            s = '{} {}: {}'.format(s, Direction(x).name, sides[x])
 
         return s
 
@@ -50,6 +50,6 @@ class EnchantedRoom(Room):
         s = 'enchanted room({}) -'.format(self.get_number())
         sides = self.get_sides()
         for x in sides:
-            s = '{} {}: {}'.format(s, x, sides[x])
+            s = '{} {}: {}'.format(s, Direction(x).name, sides[x])
 
         return s
