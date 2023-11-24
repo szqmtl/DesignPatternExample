@@ -6,7 +6,7 @@ import lombok.ToString;
 
 @ToString
 public class Maze {
-    private HashMap<Integer, Room> rooms = new HashMap<>();
+    private final HashMap<Integer, Room> rooms = new HashMap<>();
 
     public void addRoom(Room room){
         rooms.put(room.getRoomNumber(), room);

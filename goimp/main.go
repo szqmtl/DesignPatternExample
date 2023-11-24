@@ -1,9 +1,8 @@
 package main
 
-import (
-	"goimp/patterns"
-)
+import "goimp/patterns"
 
 func main() {
-	patterns.RunAbstractFactory()
+	//patterns.RunAbstractFactory()
+	patterns.RunBuilder()
 }

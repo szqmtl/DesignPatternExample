@@ -2,7 +2,7 @@ package components
 
 type MazeGame struct{}
 
-func (MazeGame) CreateGame(factory Factory) *Maze {
+func (MazeGame) Create(factory Factory) *Maze {
 	var aMaze = createMaze()
 
 	var r1 = factory.MakeRoom(1)
@@ -13,15 +13,24 @@ func (MazeGame) CreateGame(factory Factory) *Maze {
 	aMaze.AddRoom(r1)
 	aMaze.AddRoom(r2)
 
-	factory.SetRoomSide(r1, DirectionNorth, factory.MakeWall())
-	factory.SetRoomSide(r1, DirectionEast, d)
-	factory.SetRoomSide(r1, DirectionSouth, factory.MakeWall())
-	factory.SetRoomSide(r1, DirectionWest, factory.MakeWall())
+	r1.SetSide(DirectionNorth, factory.MakeWall())
+	r1.SetSide(DirectionEast, d)
+	r1.SetSide(DirectionSouth, factory.MakeWall())
+	r1.SetSide(DirectionWest, factory.MakeWall())
 
-	factory.SetRoomSide(r2, DirectionNorth, factory.MakeWall())
-	factory.SetRoomSide(r2, DirectionEast, factory.MakeWall())
-	factory.SetRoomSide(r2, DirectionSouth, factory.MakeWall())
-	factory.SetRoomSide(r2, DirectionWest, d)
+	r2.SetSide(DirectionNorth, factory.MakeWall())
+	r2.SetSide(DirectionEast, factory.MakeWall())
+	r2.SetSide(DirectionSouth, factory.MakeWall())
+	r2.SetSide(DirectionWest, d)
 
 	return aMaze
+}
+
+func (MazeGame) Build(builder MazeBuilder) *Maze {
+	builder.BuildMaze()
+	builder.BuildRoom(1)
+	builder.BuildRoom(2)
+	builder.BuildDoor(1, 2)
+
+	return builder.GetMaze()
 }

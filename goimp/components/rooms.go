@@ -5,6 +5,7 @@ import "fmt"
 type Room interface {
 	MapSite
 	GetNumber() int
+	SetSide(Direction, MapSite)
 }
 
 func createSimpleRoom(n int) *SimpleRoom {
@@ -20,15 +21,11 @@ func (r SimpleRoom) GetNumber() int {
 	return r.roomNumber
 }
 
-func (r *SimpleRoom) SetNumber(n int) {
-	r.roomNumber = n
-}
-
-func (r *SimpleRoom) GetSide(d Direction) MapSite {
+func (r SimpleRoom) GetSide(d Direction) MapSite {
 	return r.sides[d]
 }
 
-func (r *SimpleRoom) SetSide(d Direction, s MapSite) {
+func (r SimpleRoom) SetSide(d Direction, s MapSite) {
 	r.sides[d] = s
 }
 
@@ -55,10 +52,6 @@ type RoomWithBomb struct {
 
 func (r RoomWithBomb) GetNumber() int {
 	return r.roomNumber
-}
-
-func (r *RoomWithBomb) SetNumber(n int) {
-	r.roomNumber = n
 }
 
 func (r *RoomWithBomb) GetSide(d Direction) MapSite {
@@ -95,15 +88,11 @@ func (r EnchantedRoom) GetNumber() int {
 	return r.roomNumber
 }
 
-func (r *EnchantedRoom) SetNumber(n int) {
-	r.roomNumber = n
-}
-
 func (r *EnchantedRoom) GetSide(d Direction) MapSite {
 	return r.sides[d]
 }
 
-func (r *EnchantedRoom) SetSide(d Direction, s MapSite) {
+func (r EnchantedRoom) SetSide(d Direction, s MapSite) {
 	r.sides[d] = s
 }
 
