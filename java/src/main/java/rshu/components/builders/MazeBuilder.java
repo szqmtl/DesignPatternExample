@@ -1,4 +1,9 @@
-package rshu.components;
+package rshu.components.builders;
+
+import rshu.components.Direction;
+import rshu.components.Maze;
+import rshu.components.doors.Door;
+import rshu.components.rooms.Room;
 
 public class MazeBuilder{
     private Maze maze;

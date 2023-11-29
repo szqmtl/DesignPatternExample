@@ -1,4 +1,4 @@
-package rshu.components;
+package rshu.components.rooms;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -6,6 +6,8 @@ import java.util.Map;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import rshu.components.Direction;
+import rshu.components.MapSite;
 
 @ToString(doNotUseGetters = true)
 public abstract class Room implements MapSite {

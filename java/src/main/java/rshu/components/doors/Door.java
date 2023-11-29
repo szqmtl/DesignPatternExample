@@ -1,6 +1,8 @@
-package rshu.components;
+package rshu.components.doors;
 
 import lombok.ToString;
+import rshu.components.MapSite;
+import rshu.components.rooms.Room;
 
 @ToString(doNotUseGetters = true)
 public abstract class Door implements MapSite {

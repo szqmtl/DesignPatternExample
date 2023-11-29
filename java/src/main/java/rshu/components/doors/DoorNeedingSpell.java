@@ -1,6 +1,7 @@
-package rshu.components;
+package rshu.components.doors;
 
 import lombok.ToString;
+import rshu.components.rooms.Room;
 
 @ToString
 public abstract class DoorNeedingSpell extends Door {

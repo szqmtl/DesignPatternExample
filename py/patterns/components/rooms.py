@@ -1,4 +1,5 @@
 from .common import MapSite, Direction
+from .spells import Spell
 
 
 class Room(MapSite):
@@ -29,7 +30,7 @@ class Room(MapSite):
         return s
 
 
-class RoomWithBomb(Room):
+class RoomWithABomb(Room):
     def __int__(self, n: int):
         super().__init__(n)
 
@@ -43,11 +44,13 @@ class RoomWithBomb(Room):
 
 
 class EnchantedRoom(Room):
-    def __int__(self, n: int):
+
+    def __init__(self, n: int, spell: Spell):
         super().__init__(n)
+        self.__spell = spell
 
     def __str__(self):
-        s = 'enchanted room({}) -'.format(self.get_number())
+        s = 'enchanted room({}, {}) -'.format(self.get_number(), self.__spell)
         sides = self.get_sides()
         for x in sides:
             s = '{} {}: {}'.format(s, Direction(x).name, sides[x])

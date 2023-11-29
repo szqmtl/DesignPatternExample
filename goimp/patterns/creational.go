@@ -7,28 +7,36 @@ import (
 )
 
 func RunAbstractFactory() {
-	game := components.MazeGame{}
-	m1 := game.Create(components.MazeFactory{})
+	m1 := components.CreateGame(components.MazeFactory{})
 	fmt.Printf("maze 1: %v\n", m1)
 
-	m2 := game.Create(components.EnchantedMazeFactory{})
+	m2 := components.CreateGame(components.EnchantedMazeFactory{})
 	fmt.Printf("maze 2: %v\n", m2)
 
-	m3 := game.Create(components.BombedMazeFactory{})
+	m3 := components.CreateGame(components.BombedMazeFactory{})
 	fmt.Printf("maze 3: %v\n", m3)
 }
 
 func RunBuilder() {
-	game := components.MazeGame{}
-
-	m1 := game.Build(&components.SimpleMazeBuilder{})
+	m1 := components.BuildGame(&components.SimpleMazeBuilder{})
 	fmt.Printf("maze 1: %v\n", m1)
 
-	m2 := game.Build(&components.StandardMazeBuilder{})
+	m2 := components.BuildGame(&components.StandardMazeBuilder{})
 	fmt.Printf("maze 2: %v\n", m2)
 
 	b := &components.CountingMazeBuilder{}
-	game.Build(b)
+	components.BuildGame(b)
 	rooms, doors := b.GetCounts()
 	fmt.Printf("maze rooms:%v, doors: %v\n", rooms, doors)
+}
+
+func RunFactoryMethods() {
+	m1 := components.MakeSimpleGame().Create()
+	fmt.Printf("maze 1: %v\n", m1)
+
+	m2 := components.MakeBombedGame().Create()
+	fmt.Printf("maze 2: %v\n", m2)
+
+	m3 := components.MakeEnchantedGame().Create()
+	fmt.Printf("maze 3: %v\n", m3)
 }

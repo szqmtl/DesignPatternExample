@@ -1,10 +1,11 @@
-package rshu.patterns;
+package rshu.patterns.creational;
 
-import rshu.components.BombedMazeFactory;
-import rshu.components.EnchantedMazeFactory;
+
 import rshu.components.Maze;
-import rshu.components.MazeFactory;
-import rshu.components.MazeGame;
+import rshu.components.factories.BombedMazeFactory;
+import rshu.components.factories.EnchantedMazeFactory;
+import rshu.components.factories.MazeFactory;
+import rshu.components.games.MazeGame;
 
 public class AbstractFactory {
     public static void main(String[] args){

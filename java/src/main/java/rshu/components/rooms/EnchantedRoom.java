@@ -1,6 +1,7 @@
-package rshu.components;
+package rshu.components.rooms;
 
 import lombok.ToString;
+import rshu.components.Spell;
 
 @ToString
 public abstract class EnchantedRoom extends Room {

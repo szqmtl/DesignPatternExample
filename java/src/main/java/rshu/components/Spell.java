@@ -4,7 +4,7 @@ import lombok.ToString;
 
 @ToString
 public class Spell {
-    private String magicWord;
+    private final String magicWord;
 
     public Spell(String words){
         this.magicWord = words;

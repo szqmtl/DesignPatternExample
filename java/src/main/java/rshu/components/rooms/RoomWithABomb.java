@@ -1,4 +1,4 @@
-package rshu.components;
+package rshu.components.rooms;
 
 import lombok.ToString;
 

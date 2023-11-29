@@ -12,6 +12,10 @@ type SimpleDoor struct {
 	isOpen bool
 }
 
+func CreateSimpleDoor(r1, r2 Room) Door {
+	return &SimpleDoor{room1: r1, room2: r2}
+}
+
 func createSimpleDoor(r1, r2 Room) *SimpleDoor {
 	return &SimpleDoor{room1: r1, room2: r2}
 }
@@ -29,6 +33,10 @@ type DoorNeedingSpell struct {
 	room2  Room
 	isOpen bool
 	spell  Spell
+}
+
+func CreateSpellDoor(r1, r2 Room) Door {
+	return &DoorNeedingSpell{room1: r1, room2: r2, spell: Spell{"big magic~"}}
 }
 
 func createSpellDoor(r1, r2 Room) *DoorNeedingSpell {

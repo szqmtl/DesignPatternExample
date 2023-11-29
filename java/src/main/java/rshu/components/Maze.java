@@ -1,5 +1,6 @@
 package rshu.components;
 
+import rshu.components.rooms.Room;
 import java.util.HashMap;
 
 import lombok.ToString;

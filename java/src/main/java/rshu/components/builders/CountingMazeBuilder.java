@@ -1,6 +1,7 @@
-package rshu.components;
+package rshu.components.builders;
 
 import lombok.Getter;
+import rshu.components.builders.MazeBuilder;
 
 @Getter
 public class CountingMazeBuilder extends MazeBuilder {

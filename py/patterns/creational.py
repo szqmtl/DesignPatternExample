@@ -1,5 +1,5 @@
 from .components.builder import MazeBuilder, StandardMazeBuilder, CountingMazeBuilder
-from .components.games import MazeGame
+from .components.games import MazeGame, create, build, EnchantedMazeGame, BombedMazeGame
 from .components.factories import MazeFactory, EnchantedMazeFactory, BombedMazeFactory
 
 
@@ -7,13 +7,13 @@ def run_abstract_factory():
     print("starting the game")
     game = MazeGame()
 
-    m1 = game.create(MazeFactory())
+    m1 = create(MazeFactory())
     print(m1)
 
-    m2 = game.create(EnchantedMazeFactory())
+    m2 = create(EnchantedMazeFactory())
     print(m2)
 
-    m3 = game.create(BombedMazeFactory())
+    m3 = create(BombedMazeFactory())
     print(m3)
 
 
@@ -21,18 +21,28 @@ def run_builder():
     game = MazeGame()
     builder1 = MazeBuilder()
 
-    game.build(builder1)
+    build(builder1)
     m1 = builder1.get_maze()
     print(m1)
 
     builder2 = StandardMazeBuilder()
 
-    game.build(builder2)
+    build(builder2)
     m2 = builder2.get_maze()
     print(m2)
 
     builder3 = CountingMazeBuilder()
 
-    game.build(builder3)
+    build(builder3)
     r, d = builder3.get_counts()
     print("maze 3: room count: {}, door count: {}".format(r, d))
+
+def run_factory_method():
+    m1 = MazeGame().create()
+    print(m1)
+
+    m2 = EnchantedMazeGame().create()
+    print(m2)
+
+    m3 = BombedMazeGame().create()
+    print(m3)

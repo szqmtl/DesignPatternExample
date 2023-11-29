@@ -1,9 +1,9 @@
-package rshu.patterns;
+package rshu.patterns.creational;
 
-import rshu.components.CountingMazeBuilder;
-import rshu.components.MazeBuilder;
-import rshu.components.MazeGame;
-import rshu.components.StandardMazeBuilder;
+import rshu.components.builders.CountingMazeBuilder;
+import rshu.components.builders.MazeBuilder;
+import rshu.components.builders.StandardMazeBuilder;
+import rshu.components.games.MazeGame;
 
 public class Builder {
     public static void main(String[] args){

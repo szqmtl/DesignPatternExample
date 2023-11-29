@@ -1,4 +1,10 @@
-package rshu.components;
+package rshu.components.factories;
+
+import rshu.components.Spell;
+import rshu.components.doors.Door;
+import rshu.components.doors.DoorNeedingSpell;
+import rshu.components.rooms.EnchantedRoom;
+import rshu.components.rooms.Room;
 
 public class EnchantedMazeFactory extends MazeFactory {
     public EnchantedMazeFactory(){}

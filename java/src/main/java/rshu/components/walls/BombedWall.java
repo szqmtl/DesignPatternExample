@@ -1,4 +1,4 @@
-package rshu.components;
+package rshu.components.walls;
 
 import lombok.ToString;
 

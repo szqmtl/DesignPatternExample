@@ -1,4 +1,9 @@
-package rshu.components;
+package rshu.components.builders;
+
+import rshu.components.Direction;
+import rshu.components.doors.Door;
+import rshu.components.rooms.Room;
+import rshu.components.walls.Wall;
 
 public class StandardMazeBuilder extends MazeBuilder {
     public void buildRoom(int n){

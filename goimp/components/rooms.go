@@ -8,6 +8,10 @@ type Room interface {
 	SetSide(Direction, MapSite)
 }
 
+func CreateSimpleRoom(n int) Room {
+	return &SimpleRoom{roomNumber: n, sides: make(map[Direction]MapSite)}
+}
+
 func createSimpleRoom(n int) *SimpleRoom {
 	return &SimpleRoom{roomNumber: n, sides: make(map[Direction]MapSite)}
 }
@@ -72,6 +76,10 @@ func (r RoomWithBomb) String() string {
 		s += fmt.Sprintf("%s: %s, ", k, v)
 	}
 	return s + "\n"
+}
+
+func CreateEnchantedRoom(n int) Room {
+	return &EnchantedRoom{roomNumber: n, spell: Spell{word: "magic, magic"}, sides: make(map[Direction]MapSite)}
 }
 
 func createEnchantedRoom(n int, s Spell) Room {

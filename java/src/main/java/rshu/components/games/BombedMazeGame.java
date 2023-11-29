@@ -1,11 +1,16 @@
-package rshu.components;
+package rshu.components.games;
 
-public class BombedMazeFactory extends MazeFactory {
+
+import rshu.components.rooms.Room;
+import rshu.components.rooms.RoomWithABomb;
+import rshu.components.walls.BombedWall;
+import rshu.components.walls.Wall;
+
+public class BombedMazeGame extends MazeGame {
     public Wall makeWall(){
         return new BombedWall() {
             @Override
             public void enter() {
-                System.out.println("crossing bombed wall");
             }
         };
     }
@@ -14,9 +19,7 @@ public class BombedMazeFactory extends MazeFactory {
         return new RoomWithABomb(n) {
             @Override
             public void enter() {
-                System.out.println("entering a room with a bomb");
             }
         };
     }
-    
 }
